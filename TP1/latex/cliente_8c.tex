@@ -1,0 +1,147 @@
+\hypertarget{cliente_8c}{}\section{cliente.\+c File Reference}
+\label{cliente_8c}\index{cliente.\+c@{cliente.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$sys/socket.\+h$>$}\newline
+{\ttfamily \#include $<$netinet/in.\+h$>$}\newline
+{\ttfamily \#include $<$netdb.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{cliente_8c_ae0b4816fb45161ef9da5e6d6134ee28a}{T\+AM}~2000
+\item 
+\#define \hyperlink{cliente_8c_a11e77c19555cbd15bcc744ff36a18635}{B\+O\+L\+D\+B\+L\+UE}~\char`\"{}\textbackslash{}033\mbox{[}1m\textbackslash{}033\mbox{[}34m\char`\"{}      /$\ast$ Bold Blue $\ast$/
+\item 
+\#define \hyperlink{cliente_8c_ae87af5e6363eb1913b17f24dcb60a22d}{B\+O\+L\+D\+C\+Y\+AN}~\char`\"{}\textbackslash{}033\mbox{[}1m\textbackslash{}033\mbox{[}36m\char`\"{}
+\item 
+\#define \hyperlink{cliente_8c_a79d10e672abb49ad63eeaa8aaef57c38}{B\+L\+UE}~\char`\"{}\textbackslash{}033\mbox{[}34m\char`\"{}      /$\ast$ Blue $\ast$/
+\item 
+\#define \hyperlink{cliente_8c_ab702106cf3b3e96750b6845ded4e0299}{R\+E\+S\+ET}~\char`\"{}\textbackslash{}033\mbox{[}0m\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{cliente_8c_a4d8da99704be42d991f6afafacadd4ad}{connect\+T\+CP} (char $\ast$)
+\item 
+int \hyperlink{cliente_8c_a5c53b5368a9230c875fe17f6042b2406}{parse\+Connection} (char $\ast$)
+\item 
+void \hyperlink{cliente_8c_aaf69ce8c1026589487abd3cebb0206fe}{connect\+U\+DP} (int)
+\item 
+int \hyperlink{cliente_8c_a35a1aad7aa8af37044cfefbf3d495982}{parse\+Command} (char $\ast$)
+\item 
+int \hyperlink{cliente_8c_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{cliente_8c_a76bd487a692cad1714b8c57b698fd8fe}{port\+T\+CP}
+\item 
+char \hyperlink{cliente_8c_a299a49e8e0ebddaf677c250404e5511c}{ip\+Address} \mbox{[}20\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{cliente_8c_a79d10e672abb49ad63eeaa8aaef57c38}\label{cliente_8c_a79d10e672abb49ad63eeaa8aaef57c38}} 
+\index{cliente.\+c@{cliente.\+c}!B\+L\+UE@{B\+L\+UE}}
+\index{B\+L\+UE@{B\+L\+UE}!cliente.\+c@{cliente.\+c}}
+\subsubsection{\texorpdfstring{B\+L\+UE}{BLUE}}
+{\footnotesize\ttfamily \#define B\+L\+UE~\char`\"{}\textbackslash{}033\mbox{[}34m\char`\"{}      /$\ast$ Blue $\ast$/}
+
+\mbox{\Hypertarget{cliente_8c_a11e77c19555cbd15bcc744ff36a18635}\label{cliente_8c_a11e77c19555cbd15bcc744ff36a18635}} 
+\index{cliente.\+c@{cliente.\+c}!B\+O\+L\+D\+B\+L\+UE@{B\+O\+L\+D\+B\+L\+UE}}
+\index{B\+O\+L\+D\+B\+L\+UE@{B\+O\+L\+D\+B\+L\+UE}!cliente.\+c@{cliente.\+c}}
+\subsubsection{\texorpdfstring{B\+O\+L\+D\+B\+L\+UE}{BOLDBLUE}}
+{\footnotesize\ttfamily \#define B\+O\+L\+D\+B\+L\+UE~\char`\"{}\textbackslash{}033\mbox{[}1m\textbackslash{}033\mbox{[}34m\char`\"{}      /$\ast$ Bold Blue $\ast$/}
+
+\mbox{\Hypertarget{cliente_8c_ae87af5e6363eb1913b17f24dcb60a22d}\label{cliente_8c_ae87af5e6363eb1913b17f24dcb60a22d}} 
+\index{cliente.\+c@{cliente.\+c}!B\+O\+L\+D\+C\+Y\+AN@{B\+O\+L\+D\+C\+Y\+AN}}
+\index{B\+O\+L\+D\+C\+Y\+AN@{B\+O\+L\+D\+C\+Y\+AN}!cliente.\+c@{cliente.\+c}}
+\subsubsection{\texorpdfstring{B\+O\+L\+D\+C\+Y\+AN}{BOLDCYAN}}
+{\footnotesize\ttfamily \#define B\+O\+L\+D\+C\+Y\+AN~\char`\"{}\textbackslash{}033\mbox{[}1m\textbackslash{}033\mbox{[}36m\char`\"{}}
+
+\mbox{\Hypertarget{cliente_8c_ab702106cf3b3e96750b6845ded4e0299}\label{cliente_8c_ab702106cf3b3e96750b6845ded4e0299}} 
+\index{cliente.\+c@{cliente.\+c}!R\+E\+S\+ET@{R\+E\+S\+ET}}
+\index{R\+E\+S\+ET@{R\+E\+S\+ET}!cliente.\+c@{cliente.\+c}}
+\subsubsection{\texorpdfstring{R\+E\+S\+ET}{RESET}}
+{\footnotesize\ttfamily \#define R\+E\+S\+ET~\char`\"{}\textbackslash{}033\mbox{[}0m\char`\"{}}
+
+\mbox{\Hypertarget{cliente_8c_ae0b4816fb45161ef9da5e6d6134ee28a}\label{cliente_8c_ae0b4816fb45161ef9da5e6d6134ee28a}} 
+\index{cliente.\+c@{cliente.\+c}!T\+AM@{T\+AM}}
+\index{T\+AM@{T\+AM}!cliente.\+c@{cliente.\+c}}
+\subsubsection{\texorpdfstring{T\+AM}{TAM}}
+{\footnotesize\ttfamily \#define T\+AM~2000}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{cliente_8c_a4d8da99704be42d991f6afafacadd4ad}\label{cliente_8c_a4d8da99704be42d991f6afafacadd4ad}} 
+\index{cliente.\+c@{cliente.\+c}!connect\+T\+CP@{connect\+T\+CP}}
+\index{connect\+T\+CP@{connect\+T\+CP}!cliente.\+c@{cliente.\+c}}
+\subsubsection{\texorpdfstring{connect\+T\+C\+P()}{connectTCP()}}
+{\footnotesize\ttfamily int connect\+T\+CP (\begin{DoxyParamCaption}\item[{char $\ast$}]{data }\end{DoxyParamCaption})}
+
+Crea una conexion a un socket T\+CP, y envia los datos recibidos. 
+\begin{DoxyParams}{Parameters}
+{\em data} & Datos que seran enviados por el socket. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Devuelve 1 cuando la autenticacion fue correcta y cero sino lo fue.
+\end{DoxyReturn}
+\mbox{\Hypertarget{cliente_8c_aaf69ce8c1026589487abd3cebb0206fe}\label{cliente_8c_aaf69ce8c1026589487abd3cebb0206fe}} 
+\index{cliente.\+c@{cliente.\+c}!connect\+U\+DP@{connect\+U\+DP}}
+\index{connect\+U\+DP@{connect\+U\+DP}!cliente.\+c@{cliente.\+c}}
+\subsubsection{\texorpdfstring{connect\+U\+D\+P()}{connectUDP()}}
+{\footnotesize\ttfamily void connect\+U\+DP (\begin{DoxyParamCaption}\item[{int}]{port\+U\+DP }\end{DoxyParamCaption})}
+
+Se conecta y administra un socket sin conexion, para recibir un archivo. 
+\begin{DoxyParams}{Parameters}
+{\em port\+U\+DP} & puerto que se utiliza para conectarse al socket.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{cliente_8c_a0ddf1224851353fc92bfbff6f499fa97}\label{cliente_8c_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{cliente.\+c@{cliente.\+c}!main@{main}}
+\index{main@{main}!cliente.\+c@{cliente.\+c}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{cliente_8c_a35a1aad7aa8af37044cfefbf3d495982}\label{cliente_8c_a35a1aad7aa8af37044cfefbf3d495982}} 
+\index{cliente.\+c@{cliente.\+c}!parse\+Command@{parse\+Command}}
+\index{parse\+Command@{parse\+Command}!cliente.\+c@{cliente.\+c}}
+\subsubsection{\texorpdfstring{parse\+Command()}{parseCommand()}}
+{\footnotesize\ttfamily int parse\+Command (\begin{DoxyParamCaption}\item[{char $\ast$}]{command }\end{DoxyParamCaption})}
+
+Chequea rapidamente que el usuario no introduzca un comando incorrecto. 
+\begin{DoxyParams}{Parameters}
+{\em command} & Comando que sera parseado por la funcion.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{cliente_8c_a5c53b5368a9230c875fe17f6042b2406}\label{cliente_8c_a5c53b5368a9230c875fe17f6042b2406}} 
+\index{cliente.\+c@{cliente.\+c}!parse\+Connection@{parse\+Connection}}
+\index{parse\+Connection@{parse\+Connection}!cliente.\+c@{cliente.\+c}}
+\subsubsection{\texorpdfstring{parse\+Connection()}{parseConnection()}}
+{\footnotesize\ttfamily int parse\+Connection (\begin{DoxyParamCaption}\item[{char $\ast$}]{connection }\end{DoxyParamCaption})}
+
+Parsea el comando de conexion, para poder enviar el usuario al servidor y armar el socket. 
+\begin{DoxyParams}{Parameters}
+{\em connection} & Comando que sera parseado por la funcion.\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{cliente_8c_a299a49e8e0ebddaf677c250404e5511c}\label{cliente_8c_a299a49e8e0ebddaf677c250404e5511c}} 
+\index{cliente.\+c@{cliente.\+c}!ip\+Address@{ip\+Address}}
+\index{ip\+Address@{ip\+Address}!cliente.\+c@{cliente.\+c}}
+\subsubsection{\texorpdfstring{ip\+Address}{ipAddress}}
+{\footnotesize\ttfamily char ip\+Address\mbox{[}20\mbox{]}}
+
+\mbox{\Hypertarget{cliente_8c_a76bd487a692cad1714b8c57b698fd8fe}\label{cliente_8c_a76bd487a692cad1714b8c57b698fd8fe}} 
+\index{cliente.\+c@{cliente.\+c}!port\+T\+CP@{port\+T\+CP}}
+\index{port\+T\+CP@{port\+T\+CP}!cliente.\+c@{cliente.\+c}}
+\subsubsection{\texorpdfstring{port\+T\+CP}{portTCP}}
+{\footnotesize\ttfamily int port\+T\+CP}
+

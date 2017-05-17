@@ -1,0 +1,237 @@
+\hypertarget{servidor_8c}{}\section{servidor.\+c File Reference}
+\label{servidor_8c}\index{servidor.\+c@{servidor.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$sys/socket.\+h$>$}\newline
+{\ttfamily \#include $<$netinet/in.\+h$>$}\newline
+{\ttfamily \#include $<$netdb.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{servidor_8c_ae0b4816fb45161ef9da5e6d6134ee28a}{T\+AM}~2000
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{servidor_8c_ab806a1919194b35d3c4e483989917698}{parse\+Request} (char $\ast$, char $\ast$)
+\item 
+void \hyperlink{servidor_8c_abc0ccf7f31a84617acde9b68cd79be07}{average} (char $\ast$, char $\ast$)
+\item 
+void \hyperlink{servidor_8c_ad28a4ce0d0ea6a886cd13f7849b63bae}{list} (char $\ast$)
+\item 
+void \hyperlink{servidor_8c_aa88976263b65bf14b959fac0802c3a67}{download} (int)
+\item 
+int \hyperlink{servidor_8c_a636d7c5299aa3fe1e2bfac7716f2b19d}{Compare\+Date} (char $\ast$, char $\ast$, int)
+\item 
+int \hyperlink{servidor_8c_ab44879025a5f4f6683a4024b6a20a5f7}{get\+Day} (char $\ast$)
+\item 
+int \hyperlink{servidor_8c_a94d4185170a19084d48c36dbb442167b}{get\+Month} (char $\ast$)
+\item 
+int \hyperlink{servidor_8c_a8f4a86ff3884dbd3f947b4f6c0c08b7f}{get\+Year} (char $\ast$)
+\item 
+void \hyperlink{servidor_8c_a0cc5b988b9039e54e9dfbd823a715056}{get\+Data} (int, char $\ast$, char $\ast$)
+\item 
+void \hyperlink{servidor_8c_ae78c058842699bdaa06fcd857f70e716}{precipitation\+\_\+diary} (int, int, char $\ast$)
+\item 
+int \hyperlink{servidor_8c_a6eabbcf912d8d5aeb9e0d32941ff8717}{parse\+Variable} (char $\ast$)
+\item 
+void \hyperlink{servidor_8c_a4e756c8242ae8e44d3f4f24e07e3946a}{send\+U\+DP} (int)
+\item 
+void \hyperlink{servidor_8c_ae0c85d5c85e1b4bf6c4898f4cd448dfc}{get\+Column\+Name} (int, char $\ast$)
+\item 
+int \hyperlink{servidor_8c_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{servidor_8c_ae0b4816fb45161ef9da5e6d6134ee28a}\label{servidor_8c_ae0b4816fb45161ef9da5e6d6134ee28a}} 
+\index{servidor.\+c@{servidor.\+c}!T\+AM@{T\+AM}}
+\index{T\+AM@{T\+AM}!servidor.\+c@{servidor.\+c}}
+\subsubsection{\texorpdfstring{T\+AM}{TAM}}
+{\footnotesize\ttfamily \#define T\+AM~2000}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{servidor_8c_abc0ccf7f31a84617acde9b68cd79be07}\label{servidor_8c_abc0ccf7f31a84617acde9b68cd79be07}} 
+\index{servidor.\+c@{servidor.\+c}!average@{average}}
+\index{average@{average}!servidor.\+c@{servidor.\+c}}
+\subsubsection{\texorpdfstring{average()}{average()}}
+{\footnotesize\ttfamily void average (\begin{DoxyParamCaption}\item[{char $\ast$}]{variable,  }\item[{char $\ast$}]{server\+Answer }\end{DoxyParamCaption})}
+
+Calcula el promedio de los datos de un sensor en todas las estaciones disponibles. 
+\begin{DoxyParams}{Parameters}
+{\em column\+Name} & valor recibido, nombre del sensor que se usara \\
+\hline
+{\em column} & numero asignado a dicho sensor\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{servidor_8c_a636d7c5299aa3fe1e2bfac7716f2b19d}\label{servidor_8c_a636d7c5299aa3fe1e2bfac7716f2b19d}} 
+\index{servidor.\+c@{servidor.\+c}!Compare\+Date@{Compare\+Date}}
+\index{Compare\+Date@{Compare\+Date}!servidor.\+c@{servidor.\+c}}
+\subsubsection{\texorpdfstring{Compare\+Date()}{CompareDate()}}
+{\footnotesize\ttfamily int Compare\+Date (\begin{DoxyParamCaption}\item[{char $\ast$}]{date1,  }\item[{char $\ast$}]{date2,  }\item[{int}]{day\+Compare }\end{DoxyParamCaption})}
+
+Compara dos arreglos de caracteres que contienen fechas para saber si son iguales. 
+\begin{DoxyParams}{Parameters}
+{\em date1} & contiene la primera fecha a comparar. \\
+\hline
+{\em date2} & contiene la segunda fecha a comparar. \\
+\hline
+{\em day\+Compare} & un entero que al estar en cero anula la comparacion del dia.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{servidor_8c_aa88976263b65bf14b959fac0802c3a67}\label{servidor_8c_aa88976263b65bf14b959fac0802c3a67}} 
+\index{servidor.\+c@{servidor.\+c}!download@{download}}
+\index{download@{download}!servidor.\+c@{servidor.\+c}}
+\subsubsection{\texorpdfstring{download()}{download()}}
+{\footnotesize\ttfamily void download (\begin{DoxyParamCaption}\item[{int}]{station }\end{DoxyParamCaption})}
+
+Crea un archivo \char`\"{}\+C\+V\+S\char`\"{} con los datos de los sensores de la estacion pedida. 
+\begin{DoxyParams}{Parameters}
+{\em station} & numero de estacion de la cual se quieren obtener datos.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{servidor_8c_ae0c85d5c85e1b4bf6c4898f4cd448dfc}\label{servidor_8c_ae0c85d5c85e1b4bf6c4898f4cd448dfc}} 
+\index{servidor.\+c@{servidor.\+c}!get\+Column\+Name@{get\+Column\+Name}}
+\index{get\+Column\+Name@{get\+Column\+Name}!servidor.\+c@{servidor.\+c}}
+\subsubsection{\texorpdfstring{get\+Column\+Name()}{getColumnName()}}
+{\footnotesize\ttfamily void get\+Column\+Name (\begin{DoxyParamCaption}\item[{int}]{column,  }\item[{char $\ast$}]{column\+Name }\end{DoxyParamCaption})}
+
+Devuelve el nombre real de un sensor a partir del valor numerico que este tiene asignado. 
+\begin{DoxyParams}{Parameters}
+{\em column\+Name} & nombre real del sensor. \\
+\hline
+{\em column} & numero del sensor que busco conocer.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{servidor_8c_a0cc5b988b9039e54e9dfbd823a715056}\label{servidor_8c_a0cc5b988b9039e54e9dfbd823a715056}} 
+\index{servidor.\+c@{servidor.\+c}!get\+Data@{get\+Data}}
+\index{get\+Data@{get\+Data}!servidor.\+c@{servidor.\+c}}
+\subsubsection{\texorpdfstring{get\+Data()}{getData()}}
+{\footnotesize\ttfamily void get\+Data (\begin{DoxyParamCaption}\item[{int}]{column,  }\item[{char $\ast$}]{data,  }\item[{char $\ast$}]{result }\end{DoxyParamCaption})}
+
+Devuelve el dato que corresponde a la coliumna pedida, cada columna estando delimitada por una coma.. 
+\begin{DoxyParams}{Parameters}
+{\em column} & Columna de dato a la cual quiero acceder. \\
+\hline
+{\em data} & Arreglo de caracteres en el cual busca la columna indicada. \\
+\hline
+{\em result} & puntero a char por donde devuelve valor del dato de la columna pedida.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{servidor_8c_ab44879025a5f4f6683a4024b6a20a5f7}\label{servidor_8c_ab44879025a5f4f6683a4024b6a20a5f7}} 
+\index{servidor.\+c@{servidor.\+c}!get\+Day@{get\+Day}}
+\index{get\+Day@{get\+Day}!servidor.\+c@{servidor.\+c}}
+\subsubsection{\texorpdfstring{get\+Day()}{getDay()}}
+{\footnotesize\ttfamily int get\+Day (\begin{DoxyParamCaption}\item[{char $\ast$}]{date }\end{DoxyParamCaption})}
+
+A partir de un arreglo de caracteres,que contiene una fecha, obtiene el numero correspondiente al dia. 
+\begin{DoxyParams}{Parameters}
+{\em date} & un arreglo de caracteres,que contiene una fecha. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Devuelve el valor del dia.
+\end{DoxyReturn}
+\mbox{\Hypertarget{servidor_8c_a94d4185170a19084d48c36dbb442167b}\label{servidor_8c_a94d4185170a19084d48c36dbb442167b}} 
+\index{servidor.\+c@{servidor.\+c}!get\+Month@{get\+Month}}
+\index{get\+Month@{get\+Month}!servidor.\+c@{servidor.\+c}}
+\subsubsection{\texorpdfstring{get\+Month()}{getMonth()}}
+{\footnotesize\ttfamily int get\+Month (\begin{DoxyParamCaption}\item[{char $\ast$}]{date }\end{DoxyParamCaption})}
+
+A partir de un arreglo de caracteres,que contiene una fecha, obtiene el numero correspondiente al mes. 
+\begin{DoxyParams}{Parameters}
+{\em date} & un arreglo de caracteres,que contiene una fecha. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Devuelve el valor del mes.
+\end{DoxyReturn}
+\mbox{\Hypertarget{servidor_8c_a8f4a86ff3884dbd3f947b4f6c0c08b7f}\label{servidor_8c_a8f4a86ff3884dbd3f947b4f6c0c08b7f}} 
+\index{servidor.\+c@{servidor.\+c}!get\+Year@{get\+Year}}
+\index{get\+Year@{get\+Year}!servidor.\+c@{servidor.\+c}}
+\subsubsection{\texorpdfstring{get\+Year()}{getYear()}}
+{\footnotesize\ttfamily int get\+Year (\begin{DoxyParamCaption}\item[{char $\ast$}]{date }\end{DoxyParamCaption})}
+
+A partir de un arreglo de caracteres,que contiene una fecha, obtiene el numero correspondiente al año. 
+\begin{DoxyParams}{Parameters}
+{\em date} & un arreglo de caracteres,que contiene una fecha. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Devuelve el valor del año.
+\end{DoxyReturn}
+\mbox{\Hypertarget{servidor_8c_ad28a4ce0d0ea6a886cd13f7849b63bae}\label{servidor_8c_ad28a4ce0d0ea6a886cd13f7849b63bae}} 
+\index{servidor.\+c@{servidor.\+c}!list@{list}}
+\index{list@{list}!servidor.\+c@{servidor.\+c}}
+\subsubsection{\texorpdfstring{list()}{list()}}
+{\footnotesize\ttfamily void list (\begin{DoxyParamCaption}\item[{char $\ast$}]{server\+Answer }\end{DoxyParamCaption})}
+
+Devuelve una lista con las estaciones disponibles y todos sus sensores activos. 
+\begin{DoxyParams}{Parameters}
+{\em server\+Answer} & puntero a char por donde se devuelve el la lista.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{servidor_8c_a0ddf1224851353fc92bfbff6f499fa97}\label{servidor_8c_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{servidor.\+c@{servidor.\+c}!main@{main}}
+\index{main@{main}!servidor.\+c@{servidor.\+c}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{servidor_8c_ab806a1919194b35d3c4e483989917698}\label{servidor_8c_ab806a1919194b35d3c4e483989917698}} 
+\index{servidor.\+c@{servidor.\+c}!parse\+Request@{parse\+Request}}
+\index{parse\+Request@{parse\+Request}!servidor.\+c@{servidor.\+c}}
+\subsubsection{\texorpdfstring{parse\+Request()}{parseRequest()}}
+{\footnotesize\ttfamily void parse\+Request (\begin{DoxyParamCaption}\item[{char $\ast$}]{request,  }\item[{char $\ast$}]{server\+Answer }\end{DoxyParamCaption})}
+
+Parsea los commandos enviados por el cliente y luego de ser procesados por la funcion correspondientes devuelve la respuesta que luego sera enviada al cliente. 
+\begin{DoxyParams}{Parameters}
+{\em request} & contiene el commando enviado por el ciente. \\
+\hline
+{\em server\+Answer} & es la respuesta que enviara el servidor al cliente.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{servidor_8c_a6eabbcf912d8d5aeb9e0d32941ff8717}\label{servidor_8c_a6eabbcf912d8d5aeb9e0d32941ff8717}} 
+\index{servidor.\+c@{servidor.\+c}!parse\+Variable@{parse\+Variable}}
+\index{parse\+Variable@{parse\+Variable}!servidor.\+c@{servidor.\+c}}
+\subsubsection{\texorpdfstring{parse\+Variable()}{parseVariable()}}
+{\footnotesize\ttfamily int parse\+Variable (\begin{DoxyParamCaption}\item[{char $\ast$}]{variable }\end{DoxyParamCaption})}
+
+Devuelve el valor numerico el cual tiene asignado el sensor que recibe. 
+\begin{DoxyParams}{Parameters}
+{\em variable} & valor recibido, nombre del sensor que se usara. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+numero asignado a dicho sensor.
+\end{DoxyReturn}
+\mbox{\Hypertarget{servidor_8c_ae78c058842699bdaa06fcd857f70e716}\label{servidor_8c_ae78c058842699bdaa06fcd857f70e716}} 
+\index{servidor.\+c@{servidor.\+c}!precipitation\+\_\+diary@{precipitation\+\_\+diary}}
+\index{precipitation\+\_\+diary@{precipitation\+\_\+diary}!servidor.\+c@{servidor.\+c}}
+\subsubsection{\texorpdfstring{precipitation\+\_\+diary()}{precipitation\_diary()}}
+{\footnotesize\ttfamily void precipitation\+\_\+diary (\begin{DoxyParamCaption}\item[{int}]{station,  }\item[{int}]{daily,  }\item[{char $\ast$}]{server\+Answer }\end{DoxyParamCaption})}
+
+Devuelve una lista de acumulados de precipitacion, diarios o mensuales. 
+\begin{DoxyParams}{Parameters}
+{\em station} & numero de estacion de la cual se quieren obtener datos. \\
+\hline
+{\em diario} & valor que define si sera precipitacion diaria (1) o mensual (0). \\
+\hline
+{\em server\+Answer} & puntero a char por donde se devuelve el resultado para luego ser enviado por el socket.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{servidor_8c_a4e756c8242ae8e44d3f4f24e07e3946a}\label{servidor_8c_a4e756c8242ae8e44d3f4f24e07e3946a}} 
+\index{servidor.\+c@{servidor.\+c}!send\+U\+DP@{send\+U\+DP}}
+\index{send\+U\+DP@{send\+U\+DP}!servidor.\+c@{servidor.\+c}}
+\subsubsection{\texorpdfstring{send\+U\+D\+P()}{sendUDP()}}
+{\footnotesize\ttfamily void send\+U\+DP (\begin{DoxyParamCaption}\item[{int}]{port\+U\+DP }\end{DoxyParamCaption})}
+
+Crea y administra un socket sin conexion, para enviar un archivo. 
+\begin{DoxyParams}{Parameters}
+{\em port\+U\+DP} & puerto que se utiliza para crear el socket.\\
+\hline
+\end{DoxyParams}
