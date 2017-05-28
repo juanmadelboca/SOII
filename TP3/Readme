@@ -1,0 +1,3 @@
+chown www-data /var/html
+luego sudo visudo y agrego
+www-data ALL=(ALL) NOPASSWD:ALL
