@@ -50,6 +50,9 @@ return 0; // exit
 
 }
 void setWeb(){
+/**
+@brief provee el codigo html para que el cliente visualice la pagina
+**/
 //printf("%s%c%c\n","Content-Type:text/html;charset=UTF-8",13,10);
 printf("<html><head>");
 printf("<TITLE>MODULES</TITLE></head>\n");

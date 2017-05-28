@@ -26,7 +26,10 @@ int main (){
 	return 0;
 }
 void loadInfo(struct serverData *srv){
-
+/**
+@brief Carga informacion dentro de el struct.
+@param srv Strcuct donde se guardan los datos.
+**/
 	fs=fopen("/proc/cpuinfo","r");
 	strcpy(srv->cpuType, search("vendor_id"));
 	rewind(fs);
@@ -46,6 +49,10 @@ void loadInfo(struct serverData *srv){
 	
 }
 void setWeb(struct serverData *srv){
+/**
+@brief muestra en formato html lo que esta en el struct.
+@param srv Strcuct donde se leen los datos.
+**/
 	printf("%s%c%c\n","Content-Type:text/html;charset=UTF-8",13,10);
 	printf("<html><header><title>Server Info</title></header><body><h1>Server Info</h1>");
 
@@ -58,8 +65,11 @@ void setWeb(struct serverData *srv){
 	printf("</body></html>");
 }
 char* search(const char searchedWord[]) {
-	//recibe una palabra de busqueda y devuelve un array con los datos 
-
+/**
+@brief recibe una palabra de busqueda y devuelve un array con los datos.
+@param searchedWord  string que se busca
+@returns Devuelve el valor buscado.
+**/
 	int tmp1, tmp2;
 	static char* token;
 	static char text[150];
@@ -101,7 +111,12 @@ char* search(const char searchedWord[]) {
 
 }
 char* upTime(char texto[],int div) {
-	//toma la linea de texto y me la devuelve con el formato deseado
+/**
+@brief recibe un string con un valor numerico y lo convierte a un formato dias hora minutos.
+@param texto  uptime en formato obtenido del proc.
+@param div  un entero para variar el formato final.
+@returns Devuelve el valor de uptime formateado.
+**/
 	float uptime, seconds;
 	int days, hours, minutes;
 	static char formatedUpTime[25];
@@ -116,6 +131,10 @@ char* upTime(char texto[],int div) {
 	return formatedUpTime;
 }
 char* getTime(){
+/**
+@brief Obtiene una fecha y hora actual.
+@returns Devuelve el valor de la fecha obtenida.
+**/
 	time_t timer;
   	struct tm * timeinfo;
 	time (&timer);
