@@ -1,3 +1,11 @@
+instrucciones:
+1- instalar lighttpd:
+sudo apt install lighttpd
+2-modificar el archivo /etc/lighttpd/conf-available/10-cgi.conf
+hasta que quede como el qu se encuentra en la carpeta
+3-cambiar el dueño de la carpeta /html
 chown www-data /var/html
-luego sudo visudo y agrego
+4-luego sudo visudo y agrego
 www-data ALL=(ALL) NOPASSWD:ALL
+5-compilar con make y colocar los .cgi en una carpeta nueva /var/www/html/cgi-bin
+la carpeta files en /var/www/html/files y los archivos html en /var/www/html
