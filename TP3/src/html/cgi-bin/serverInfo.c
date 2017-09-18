@@ -3,7 +3,7 @@
 #include <time.h>
 struct serverData{
 
-	char cpuType[20];
+	// char cpuType[20];
 	char cpuModel[100];
 	char uptime[50];
 	char date[50];
@@ -31,8 +31,8 @@ void loadInfo(struct serverData *srv){
 @param srv Strcuct donde se guardan los datos.
 **/
 	fs=fopen("/proc/cpuinfo","r");
-	strcpy(srv->cpuType, search("vendor_id"));
-	rewind(fs);
+	// strcpy(srv->cpuType, search("vendor_id"));
+	// rewind(fs);
 	strcpy(srv->cpuModel, search("model name"));
 	fclose(fs);
 
@@ -56,7 +56,7 @@ void setWeb(struct serverData *srv){
 	printf("%s%c%c\n","Content-Type:text/html;charset=UTF-8",13,10);
 	printf("<html><header><title>Server Info</title></header><body><h1>Server Info</h1>");
 
-	printf("<p><b>Marca de procesador: </b>%s</p>",srv->cpuType);
+	// printf("<p><b>Marca de procesador: </b>%s</p>",srv->cpuType);
 	printf("<p><b>Modelo del procesador: </b>%s</p>",srv->cpuModel);
 	printf("<p><b>uptime: </b>%s</p>",srv->uptime);
 	printf("<p><b>Fecha y Hora: </b>%s</p>",srv->date);
