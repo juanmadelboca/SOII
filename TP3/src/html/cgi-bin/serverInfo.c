@@ -77,8 +77,8 @@ char* search(const char searchedWord[]) {
 
 	{
 		fgets(text, 150, fs); //lee una linea de el archivo
-
-		for (int i = 0; i < strlen(text); i++) {
+		int i;
+		for (i = 0; i < strlen(text); i++) {
 
 			if (searchedWord[0] == text[i]) {
 

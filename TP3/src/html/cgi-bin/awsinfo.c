@@ -257,7 +257,8 @@ void getData(int column, char * data, char * result){
 	char *token;
 	temporal=strdup(data);
 	token=strtok(temporal,",");
-	for (int i = 0; i <column; ++i)
+	int i;
+	for (i = 0; i <column; ++i)
     {
    		token=strtok(NULL,",");
     }        
