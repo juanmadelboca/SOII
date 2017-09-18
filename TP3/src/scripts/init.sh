@@ -1,7 +1,7 @@
 sudo apt-get install lighttpd
-chown www-data /var/html
+chown www-data /var/www/html
 echo "www-data ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
-sudo cp -r /home/pi/GIT/SOII/src/html /var/html
+sudo cp -r /home/pi/GIT/SOII/src/html /var/www/html
 cd /var/html/cgi-bin
 make
 cd ..
