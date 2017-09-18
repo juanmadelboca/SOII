@@ -1,8 +1,8 @@
 sudo apt-get install lighttpd
-chown www-data /var/www/html
+chown -R www-data /var/www/html
 echo "www-data ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
-sudo cp -r /home/pi/GIT/SOII/src/html /var/www/html
+sudo cp -r /home/pi/GIT/SOII/TP3/src/html /var/www/
 cd /var/www/html/cgi-bin
 make
 cd ..
-sudo lighty-enable-mode cgi
+sudo lighty-enable-mod cgi
