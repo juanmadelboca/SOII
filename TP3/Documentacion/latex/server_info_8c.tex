@@ -1,0 +1,109 @@
+\hypertarget{server_info_8c}{}\section{html/cgi-\/bin/server\+Info.c File Reference}
+\label{server_info_8c}\index{html/cgi-\/bin/server\+Info.\+c@{html/cgi-\/bin/server\+Info.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structserver_data}{server\+Data}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \hyperlink{server_info_8c_a7c8afa1d5d297bf5e8196d34ee0e2f8e}{up\+Time} (char texto\mbox{[}$\,$\mbox{]}, int div)
+\item 
+void \hyperlink{server_info_8c_a3ae51efc03bd2fb7dbaa7292c1bb11b8}{load\+Info} (struct \hyperlink{structserver_data}{server\+Data} $\ast$srv)
+\item 
+void \hyperlink{server_info_8c_a9e601c71e938f7e5bf1a0cb046503e3f}{set\+Web} (struct \hyperlink{structserver_data}{server\+Data} $\ast$srv)
+\item 
+char $\ast$ \hyperlink{server_info_8c_a7cea4d3469242a87f3d47921ac2cf074}{search} (const char searched\+Word\mbox{[}$\,$\mbox{]})
+\item 
+char $\ast$ \hyperlink{server_info_8c_a81a0d93ad8512065af8f98914ed36b45}{get\+Time} ()
+\item 
+int \hyperlink{server_info_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+F\+I\+LE $\ast$ \hyperlink{server_info_8c_aff692fbc5c9f70125ef940daaf4c7190}{fs}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{server_info_8c_a81a0d93ad8512065af8f98914ed36b45}\label{server_info_8c_a81a0d93ad8512065af8f98914ed36b45}} 
+\index{server\+Info.\+c@{server\+Info.\+c}!get\+Time@{get\+Time}}
+\index{get\+Time@{get\+Time}!server\+Info.\+c@{server\+Info.\+c}}
+\subsubsection{\texorpdfstring{get\+Time()}{getTime()}}
+{\footnotesize\ttfamily char $\ast$ get\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Obtiene una fecha y hora actual. \begin{DoxyReturn}{Returns}
+Devuelve el valor de la fecha obtenida.
+\end{DoxyReturn}
+\mbox{\Hypertarget{server_info_8c_a3ae51efc03bd2fb7dbaa7292c1bb11b8}\label{server_info_8c_a3ae51efc03bd2fb7dbaa7292c1bb11b8}} 
+\index{server\+Info.\+c@{server\+Info.\+c}!load\+Info@{load\+Info}}
+\index{load\+Info@{load\+Info}!server\+Info.\+c@{server\+Info.\+c}}
+\subsubsection{\texorpdfstring{load\+Info()}{loadInfo()}}
+{\footnotesize\ttfamily void load\+Info (\begin{DoxyParamCaption}\item[{struct \hyperlink{structserver_data}{server\+Data} $\ast$}]{srv }\end{DoxyParamCaption})}
+
+Carga informacion dentro de el struct. 
+\begin{DoxyParams}{Parameters}
+{\em srv} & Strcuct donde se guardan los datos.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{server_info_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{server_info_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{server\+Info.\+c@{server\+Info.\+c}!main@{main}}
+\index{main@{main}!server\+Info.\+c@{server\+Info.\+c}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{server_info_8c_a7cea4d3469242a87f3d47921ac2cf074}\label{server_info_8c_a7cea4d3469242a87f3d47921ac2cf074}} 
+\index{server\+Info.\+c@{server\+Info.\+c}!search@{search}}
+\index{search@{search}!server\+Info.\+c@{server\+Info.\+c}}
+\subsubsection{\texorpdfstring{search()}{search()}}
+{\footnotesize\ttfamily char $\ast$ search (\begin{DoxyParamCaption}\item[{const char}]{searched\+Word\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+recibe una palabra de busqueda y devuelve un array con los datos. 
+\begin{DoxyParams}{Parameters}
+{\em searched\+Word} & string que se busca \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Devuelve el valor buscado.
+\end{DoxyReturn}
+\mbox{\Hypertarget{server_info_8c_a9e601c71e938f7e5bf1a0cb046503e3f}\label{server_info_8c_a9e601c71e938f7e5bf1a0cb046503e3f}} 
+\index{server\+Info.\+c@{server\+Info.\+c}!set\+Web@{set\+Web}}
+\index{set\+Web@{set\+Web}!server\+Info.\+c@{server\+Info.\+c}}
+\subsubsection{\texorpdfstring{set\+Web()}{setWeb()}}
+{\footnotesize\ttfamily void set\+Web (\begin{DoxyParamCaption}\item[{struct \hyperlink{structserver_data}{server\+Data} $\ast$}]{srv }\end{DoxyParamCaption})}
+
+muestra en formato html lo que esta en el struct. 
+\begin{DoxyParams}{Parameters}
+{\em srv} & Strcuct donde se leen los datos.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{server_info_8c_a7c8afa1d5d297bf5e8196d34ee0e2f8e}\label{server_info_8c_a7c8afa1d5d297bf5e8196d34ee0e2f8e}} 
+\index{server\+Info.\+c@{server\+Info.\+c}!up\+Time@{up\+Time}}
+\index{up\+Time@{up\+Time}!server\+Info.\+c@{server\+Info.\+c}}
+\subsubsection{\texorpdfstring{up\+Time()}{upTime()}}
+{\footnotesize\ttfamily char $\ast$ up\+Time (\begin{DoxyParamCaption}\item[{char}]{texto\mbox{[}$\,$\mbox{]},  }\item[{int}]{div }\end{DoxyParamCaption})}
+
+recibe un string con un valor numerico y lo convierte a un formato dias hora minutos. 
+\begin{DoxyParams}{Parameters}
+{\em texto} & uptime en formato obtenido del proc. \\
+\hline
+{\em div} & un entero para variar el formato final. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Devuelve el valor de uptime formateado.
+\end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{server_info_8c_aff692fbc5c9f70125ef940daaf4c7190}\label{server_info_8c_aff692fbc5c9f70125ef940daaf4c7190}} 
+\index{server\+Info.\+c@{server\+Info.\+c}!fs@{fs}}
+\index{fs@{fs}!server\+Info.\+c@{server\+Info.\+c}}
+\subsubsection{\texorpdfstring{fs}{fs}}
+{\footnotesize\ttfamily F\+I\+LE$\ast$ fs}
+

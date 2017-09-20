@@ -1,1 +1,0 @@
-cmd_/home/pi/GIT/SOII/TP3/src/module/hello.ko := ld -EL -r  -T ./scripts/module-common.lds --build-id  -o /home/pi/GIT/SOII/TP3/src/module/hello.ko /home/pi/GIT/SOII/TP3/src/module/hello.o /home/pi/GIT/SOII/TP3/src/module/hello.mod.o ;  true

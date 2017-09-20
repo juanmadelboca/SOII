@@ -1,0 +1,118 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.text-tittle{
+    font-family: "Lucida Console", Monaco, monospace;
+    margin-bottom: 5%;
+}
+.text-lsmod{
+    font-size: 16;  
+}
+
+.main-container {    
+    text-align: center;
+	position: relative;
+    background: #e4e4e4;
+    padding: 30px;
+    border-radius: 10px;
+    width: 30%;
+    margin: 10 auto;
+    margin-top: 10%;
+}
+.main-container form {
+    margin: 0;
+}
+
+.main-container form .form-control {
+    margin: 5px 0;
+}
+
+.btn-grey{
+    padding: 10px;
+    background-color: white;
+    border-radius: 1px;
+    color: black;
+    width: 45%;
+}
+
+.padding-10px{
+    padding: 10px;
+}
+
+.btn-grey-form{
+    padding: 10px;
+    background-color: white;
+    border-radius: 1px;
+    color: black;
+    width:100%;
+    position:relative;
+}
+
+.btn-grey-upload{
+    padding: 10px;
+    background-color: white;
+    border-radius: 1px;
+    color: black;
+    width:100%;
+    position:relative;
+    width: 92%;
+}
+
+.btn-file-browse{
+    display: none;
+}
+
+.copyright {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+@media (max-width: 1080px) {
+    .center{
+        width: 35%;
+    }
+    .btn-grey{
+        width: 60%;
+    }
+}
+
+@media (max-width: 767px) {
+    .center{
+        width: 45%;
+    }
+    .copyright {
+        display: none;
+    }
+    .btn-grey{
+        width: 73%;
+    }
+}
+
+@media (max-width: 480px) {
+    .center{
+        width: 55%;
+    }
+    .copyright {
+        display: none;
+    }
+    .btn-grey{
+        width: 80%;
+    }
+
+@media (max-width: 360px) {
+    .center{
+        width: 65%;
+    }
+    .copyright {
+        display: none;
+    }
+    .btn-grey{
+        width: 80%;
+    }
+}
+
+}

@@ -1,0 +1,146 @@
+\hypertarget{awsinfo_8c}{}\section{html/cgi-\/bin/awsinfo.c File Reference}
+\label{awsinfo_8c}\index{html/cgi-\/bin/awsinfo.\+c@{html/cgi-\/bin/awsinfo.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{awsinfo_8c_ac627cbf66bc7a2acbc59f3068a350e10}{download} (int, char $\ast$)
+\item 
+void \hyperlink{awsinfo_8c_ae4ec69545de679b65c6bf0d993bf69e1}{average} (int, char $\ast$)
+\item 
+void \hyperlink{awsinfo_8c_ae78c058842699bdaa06fcd857f70e716}{precipitation\+\_\+diary} (int, int, char $\ast$)
+\item 
+int \hyperlink{awsinfo_8c_a636d7c5299aa3fe1e2bfac7716f2b19d}{Compare\+Date} (char $\ast$, char $\ast$, int)
+\item 
+int \hyperlink{awsinfo_8c_a94d4185170a19084d48c36dbb442167b}{get\+Month} (char $\ast$)
+\item 
+int \hyperlink{awsinfo_8c_ab44879025a5f4f6683a4024b6a20a5f7}{get\+Day} (char $\ast$)
+\item 
+int \hyperlink{awsinfo_8c_a8f4a86ff3884dbd3f947b4f6c0c08b7f}{get\+Year} (char $\ast$)
+\item 
+void \hyperlink{awsinfo_8c_a0cc5b988b9039e54e9dfbd823a715056}{get\+Data} (int, char $\ast$, char $\ast$)
+\item 
+int \hyperlink{awsinfo_8c_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{awsinfo_8c_ae4ec69545de679b65c6bf0d993bf69e1}\label{awsinfo_8c_ae4ec69545de679b65c6bf0d993bf69e1}} 
+\index{awsinfo.\+c@{awsinfo.\+c}!average@{average}}
+\index{average@{average}!awsinfo.\+c@{awsinfo.\+c}}
+\subsubsection{\texorpdfstring{average()}{average()}}
+{\footnotesize\ttfamily void average (\begin{DoxyParamCaption}\item[{int}]{variable,  }\item[{char $\ast$}]{server\+Answer }\end{DoxyParamCaption})}
+
+Calcula el promedio de los datos de un sensor en todas las estaciones disponibles. 
+\begin{DoxyParams}{Parameters}
+{\em column\+Name} & valor recibido, nombre del sensor que se usara \\
+\hline
+{\em column} & numero asignado a dicho sensor\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{awsinfo_8c_a636d7c5299aa3fe1e2bfac7716f2b19d}\label{awsinfo_8c_a636d7c5299aa3fe1e2bfac7716f2b19d}} 
+\index{awsinfo.\+c@{awsinfo.\+c}!Compare\+Date@{Compare\+Date}}
+\index{Compare\+Date@{Compare\+Date}!awsinfo.\+c@{awsinfo.\+c}}
+\subsubsection{\texorpdfstring{Compare\+Date()}{CompareDate()}}
+{\footnotesize\ttfamily int Compare\+Date (\begin{DoxyParamCaption}\item[{char $\ast$}]{date1,  }\item[{char $\ast$}]{date2,  }\item[{int}]{day\+Compare }\end{DoxyParamCaption})}
+
+Compara dos arreglos de caracteres que contienen fechas para saber si son iguales. 
+\begin{DoxyParams}{Parameters}
+{\em date1} & contiene la primera fecha a comparar. \\
+\hline
+{\em date2} & contiene la segunda fecha a comparar. \\
+\hline
+{\em day\+Compare} & un entero que al estar en cero anula la comparacion del dia.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{awsinfo_8c_ac627cbf66bc7a2acbc59f3068a350e10}\label{awsinfo_8c_ac627cbf66bc7a2acbc59f3068a350e10}} 
+\index{awsinfo.\+c@{awsinfo.\+c}!download@{download}}
+\index{download@{download}!awsinfo.\+c@{awsinfo.\+c}}
+\subsubsection{\texorpdfstring{download()}{download()}}
+{\footnotesize\ttfamily void download (\begin{DoxyParamCaption}\item[{int}]{station,  }\item[{char $\ast$}]{server\+Answer }\end{DoxyParamCaption})}
+
+Crea un archivo \char`\"{}\+C\+V\+S\char`\"{} con los datos de los sensores de la estacion pedida. 
+\begin{DoxyParams}{Parameters}
+{\em station} & numero de estacion de la cual se quieren obtener datos.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{awsinfo_8c_a0cc5b988b9039e54e9dfbd823a715056}\label{awsinfo_8c_a0cc5b988b9039e54e9dfbd823a715056}} 
+\index{awsinfo.\+c@{awsinfo.\+c}!get\+Data@{get\+Data}}
+\index{get\+Data@{get\+Data}!awsinfo.\+c@{awsinfo.\+c}}
+\subsubsection{\texorpdfstring{get\+Data()}{getData()}}
+{\footnotesize\ttfamily void get\+Data (\begin{DoxyParamCaption}\item[{int}]{column,  }\item[{char $\ast$}]{data,  }\item[{char $\ast$}]{result }\end{DoxyParamCaption})}
+
+Devuelve el dato que corresponde a la coliumna pedida, cada columna estando delimitada por una coma.. 
+\begin{DoxyParams}{Parameters}
+{\em column} & Columna de dato a la cual quiero acceder. \\
+\hline
+{\em data} & Arreglo de caracteres en el cual busca la columna indicada. \\
+\hline
+{\em result} & puntero a char por donde devuelve valor del dato de la columna pedida.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{awsinfo_8c_ab44879025a5f4f6683a4024b6a20a5f7}\label{awsinfo_8c_ab44879025a5f4f6683a4024b6a20a5f7}} 
+\index{awsinfo.\+c@{awsinfo.\+c}!get\+Day@{get\+Day}}
+\index{get\+Day@{get\+Day}!awsinfo.\+c@{awsinfo.\+c}}
+\subsubsection{\texorpdfstring{get\+Day()}{getDay()}}
+{\footnotesize\ttfamily int get\+Day (\begin{DoxyParamCaption}\item[{char $\ast$}]{date }\end{DoxyParamCaption})}
+
+A partir de un arreglo de caracteres,que contiene una fecha, obtiene el numero correspondiente al dia. 
+\begin{DoxyParams}{Parameters}
+{\em date} & un arreglo de caracteres,que contiene una fecha. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Devuelve el valor del dia.
+\end{DoxyReturn}
+\mbox{\Hypertarget{awsinfo_8c_a94d4185170a19084d48c36dbb442167b}\label{awsinfo_8c_a94d4185170a19084d48c36dbb442167b}} 
+\index{awsinfo.\+c@{awsinfo.\+c}!get\+Month@{get\+Month}}
+\index{get\+Month@{get\+Month}!awsinfo.\+c@{awsinfo.\+c}}
+\subsubsection{\texorpdfstring{get\+Month()}{getMonth()}}
+{\footnotesize\ttfamily int get\+Month (\begin{DoxyParamCaption}\item[{char $\ast$}]{date }\end{DoxyParamCaption})}
+
+A partir de un arreglo de caracteres,que contiene una fecha, obtiene el numero correspondiente al mes. 
+\begin{DoxyParams}{Parameters}
+{\em date} & un arreglo de caracteres,que contiene una fecha. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Devuelve el valor del mes.
+\end{DoxyReturn}
+\mbox{\Hypertarget{awsinfo_8c_a8f4a86ff3884dbd3f947b4f6c0c08b7f}\label{awsinfo_8c_a8f4a86ff3884dbd3f947b4f6c0c08b7f}} 
+\index{awsinfo.\+c@{awsinfo.\+c}!get\+Year@{get\+Year}}
+\index{get\+Year@{get\+Year}!awsinfo.\+c@{awsinfo.\+c}}
+\subsubsection{\texorpdfstring{get\+Year()}{getYear()}}
+{\footnotesize\ttfamily int get\+Year (\begin{DoxyParamCaption}\item[{char $\ast$}]{date }\end{DoxyParamCaption})}
+
+A partir de un arreglo de caracteres,que contiene una fecha, obtiene el numero correspondiente al año. 
+\begin{DoxyParams}{Parameters}
+{\em date} & un arreglo de caracteres,que contiene una fecha. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Devuelve el valor del año.
+\end{DoxyReturn}
+\mbox{\Hypertarget{awsinfo_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{awsinfo_8c_a840291bc02cba5474a4cb46a9b9566fe}} 
+\index{awsinfo.\+c@{awsinfo.\+c}!main@{main}}
+\index{main@{main}!awsinfo.\+c@{awsinfo.\+c}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{awsinfo_8c_ae78c058842699bdaa06fcd857f70e716}\label{awsinfo_8c_ae78c058842699bdaa06fcd857f70e716}} 
+\index{awsinfo.\+c@{awsinfo.\+c}!precipitation\+\_\+diary@{precipitation\+\_\+diary}}
+\index{precipitation\+\_\+diary@{precipitation\+\_\+diary}!awsinfo.\+c@{awsinfo.\+c}}
+\subsubsection{\texorpdfstring{precipitation\+\_\+diary()}{precipitation\_diary()}}
+{\footnotesize\ttfamily void precipitation\+\_\+diary (\begin{DoxyParamCaption}\item[{int}]{station,  }\item[{int}]{daily,  }\item[{char $\ast$}]{server\+Answer }\end{DoxyParamCaption})}
+
+Devuelve una lista de acumulados de precipitacion, diarios o mensuales. 
+\begin{DoxyParams}{Parameters}
+{\em station} & numero de estacion de la cual se quieren obtener datos. \\
+\hline
+{\em diario} & valor que define si sera precipitacion diaria (1) o mensual (0). \\
+\hline
+{\em server\+Answer} & puntero a char por donde se devuelve el resultado para luego ser enviado por el socket.\\
+\hline
+\end{DoxyParams}

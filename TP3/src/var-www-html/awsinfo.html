@@ -1,0 +1,111 @@
+<html>
+
+  <head>
+    <title>"AWS SERVER"</title>
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="main.css" media="screen" />
+    </head>
+  <body>  	
+    <div class="main-container ">
+      <p>
+        <h1 class ="text-tittle" >AWS INFO</h1>
+      </p>
+      <p>
+        <form action="/cgi-bin/awsinfo.cgi" class="row"	METHOD="GET">	
+          <input  type="hidden" name="station" value=0 />
+          <input  type="hidden" name="function" value=0 />
+          <div class="col-md-6"> 
+            <select name="variable" requiered="true" class="form-control">
+              <optgroup label="Variable">
+                <option value=4>Temperatura</option>
+                <option value=5>Humedad</option>
+                <option value=6>Punto de Rocío</option>
+                <option value=7>Precipitación</option>
+                <option value=8>Velocidad Viento</option>
+                <option value=9>Dirección Viento</option>
+                <option value=10>Ráfaga Máxima</option>
+                <option value=11>Presión</option>
+                <option value=12>Radiación Solar</option>
+                <option value=13>Temperatura Suelo 1</option>
+                <option value=14>Temperatura Suelo 2</option>
+                <option value=15>Temperatura Suelo 3</option>
+                <option value=16>Humedad Suelo 1</option>
+                <option value=17>Humedad Suelo 2</option>
+                <option value=18>Humedad Suelo 3</option>
+                <option value=19>Humedad de Hoja </option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <input  type="submit" value="Promedio" class="btn btn-grey-form"  />
+          </div>
+          </form>
+      </p>
+
+      <p>
+        <form action="/cgi-bin/awsinfo.cgi"   METHOD="GET" class="row"> 
+          <div class="col-md-6"> 
+            <select name="station" requiered="true" class="form-control">
+              <optgroup label="Estacion">
+                <option value=30135>30135</option>
+                <option value=30057>30057</option>
+                <option value=30061>30061</option>
+                <option value=30099>30099</option>
+                <option value=30069>30069</option>
+              </optgroup>
+            </select>
+          </div>
+            <input  type="hidden" name="function" value=1 />
+            <input  type="hidden" name="variable" value=0 />
+            <div class="col-md-6">       
+              <input  type="submit" value="Diario de Precipitación"  class="btn btn-grey-form" />
+            </div>
+        </form>
+      </p>
+
+      <p>
+        <form action="/cgi-bin/awsinfo.cgi"   METHOD="GET" class="row"> 
+          <div class="col-md-6"> 
+            <select name="station" requiered="true" class="form-control">
+              <optgroup label="Estacion">
+                <option value=30135>30135</option>
+                <option value=30057>30057</option>
+                <option value=30061>30061</option>
+                <option value=30099>30099</option>
+                <option value=30069>30069</option>
+              </optgroup>
+            </select>
+          </div>  
+            <input  type="hidden" name="function" value=2 />
+            <input  type="hidden" name="variable" value=0 />
+          <div class="col-md-6"> 
+            <input  type="submit" value="Mensual de Precipitación"  class="btn btn-grey-form" />
+          </div>
+        </form>
+      </p>
+
+      <p>
+        <form action="/cgi-bin/awsinfo.cgi"   METHOD="GET" class="row"> 
+          <div class="col-md-6"> 
+            <select name="station" requiered="true" class="form-control">
+              <optgroup label="Estacion">
+                <option value=30135>30135</option>
+                <option value=30057>30057</option>
+                <option value=30061>30061</option>
+                <option value=30099>30099</option>
+                <option value=30069>30069</option>
+              </optgroup>
+            </select>
+          </div>  
+            <input  type="hidden" name="function" value=3 />
+            <input  type="hidden" name="variable" value=0 />
+          <div class="col-md-6"> 
+            <input  type="submit" value="Descargar"  class="btn btn-grey-form" />
+          </div>
+        </form>
+      </p>
+   </div>
+  </body>
+</html>
