@@ -30,6 +30,11 @@ body {
     margin: 5px 0;
 }
 
+.text-align{   
+    text-align: left;
+
+}
+
 .btn-grey{
     padding: 10px;
     background-color: white;
