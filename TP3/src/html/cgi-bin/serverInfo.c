@@ -53,16 +53,20 @@ void setWeb(struct serverData *srv){
 @brief muestra en formato html lo que esta en el struct.
 @param srv Strcuct donde se leen los datos.
 **/
-	printf("%s%c%c\n","Content-Type:text/html;charset=UTF-8",13,10);
-	printf("<html><header><title>Server Info</title></header><body><h1>Server Info</h1>");
-
+	printf("<html><head><title>\"AWS Service\"</title><meta charset=\"UTF-8\">");
+	printf("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
+	printf("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\"");
+	printf("integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\">");
+	printf("<link rel=\"stylesheet\" type=\"text/css\" href=\"./../css/main.css\" media=\"screen\" />");
+	printf("</head><body><div class=\"main-container \">");
+	printf("<h1>Server Info</h1>");
 	// printf("<p><b>Marca de procesador: </b>%s</p>",srv->cpuType);
 	printf("<p><b>Modelo del procesador: </b>%s</p>",srv->cpuModel);
 	printf("<p><b>uptime: </b>%s</p>",srv->uptime);
 	printf("<p><b>Fecha y Hora: </b>%s</p>",srv->date);
 	printf("<p><b>Memoria libre: </b>%d</p>",srv->memoryFree);
 	printf("<p><b>Memoria total: </b>%d</p>",srv->memoryTotal);
-	printf("</body></html>");
+	printf("</div></body></html>");
 }
 char* search(const char searchedWord[]) {
 /**

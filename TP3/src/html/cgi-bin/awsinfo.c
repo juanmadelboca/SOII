@@ -16,15 +16,18 @@ char serverAnswer[2000];
 char *data;
 int function, variable,station;
 
-printf("%s%c%c\n","Content-Type:text/html;charset=UTF-8",13,10);
-printf("<TITLE>AWS SERVER</TITLE>\n");
+printf("<html><head><title>\"AWS Service\"</title><meta charset=\"UTF-8\">");
+printf("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
+printf("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\"");
+printf("integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\">");
+printf("<link rel=\"stylesheet\" type=\"text/css\" href=\"./../css/main.css\" media=\"screen\" />");
+printf("</head><body><div class=\"main-container \">");
 data = getenv("QUERY_STRING");
 
 if(data == NULL)
   printf("<P>Error! Error in passing data from form to script.");
 else if(sscanf(data,"station=%d&function=%d&variable=%d",&station,&function,&variable)!=4)
 
-printf("<body>");
 switch(function){
 
 case 0:
@@ -43,7 +46,7 @@ default:
 	break;
 }
 printf("%s",serverAnswer );
-printf("</body>");
+printf("</div></body></html>");
 return 0;
 }
 void average(int variable,char * serverAnswer){
@@ -128,7 +131,7 @@ void download(int station,char* serverAnswer){
     }
     fclose(sendFile);
     fclose(file);
-   strcpy(serverAnswer,"<p><a href=\"/files/temporal.CSV\" target=\"_blank\">Descargar!</a></p>");
+   strcpy(serverAnswer,"<p><a href=\"/files/temporal.CSV\"class=\"btn btn-grey-form\" target=\"_self\">Descargar!</a></p>");
 
 }
 void precipitation_diary(int station,int daily,char * serverAnswer){
