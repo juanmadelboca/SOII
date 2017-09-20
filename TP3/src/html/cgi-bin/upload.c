@@ -10,8 +10,6 @@ char *data;
 unsigned long length;
 unsigned long writelength;
 char *pos;
- 
-printf("Content-type: text/html\n\n<HTML><PRE>");
 out= fopen ("/var/www/html/files/modulo.ko","wb+");
 length=atol(getenv("CONTENT_LENGTH"));
 writelength=length;
@@ -35,35 +33,42 @@ fwrite(data, 1, writelength, out);
 fclose(out);
 free(rawdata);
 //chequeo q sea un modulo lo que han subido
+int moduleInstalled;
 if(checkModule("/var/www/html/files/modulo.ko")){
 	
 	fflush(0);
 	system("sudo insmod /var/www/html/files/modulo.ko");
-	printf("%s\n","MODULO INSTALADO CORRECTAMENTE" );
-
+	moduleInstalled=1;
 }else{
-
-	printf("%s\n","NO ES UN MODULO INTENTA DE NUEVO" );
+	moduleInstalled=0;
 }
-setWeb();
+setWeb(moduleInstalled);
 return 0; // exit
 
 }
-void setWeb(){
+void setWeb(int moduleInstalled){
 /**
 @brief provee el codigo html para que el cliente visualice la pagina
 **/
-//printf("%s%c%c\n","Content-Type:text/html;charset=UTF-8",13,10);
-printf("<html><head>");
-printf("<TITLE>MODULES</TITLE></head>\n");
-printf("<body>");
-printf("<form enctype=\"multipart/form-data\" action=\"upload.cgi\" method=\"POST\"><input name=\"upload\" type=\"file\"/><input type=\"submit\" value=\"Subir\"/></form>");
-printf("<p><form action=\"/cgi-bin/delete.cgi\"   METHOD=\"GET\"><input name=\"module\" type=\"text\"/><input  type=\"submit\" value=\"Borrar Modulo\"  /></form></p>");
-printf("<p>");
+printf("<html><head><title>\"AWS Service\"</title><meta charset=\"UTF-8\">");
+printf("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
+printf("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\"");
+printf("integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\">");
+printf("<link rel=\"stylesheet\" type=\"text/css\" href=\"./../css/main.css\" media=\"screen\" /></head><body><div class=\"main-container\">");
+if(moduleInstalled == 1){
+	printf("<div>El modulo ha sido instalado</div>");
+}else{
+	printf("<div>El archivo subido no es un modulo</div>");
+}
+printf("<form enctype=\"multipart/form-data\" action=\"upload.cgi\" method=\"POST\" class=\"row\" ><div class=\"col-md-6\">");
+printf("<label class=\"btn btn-grey-form\">Buscar <input type=\"file\" name=\"upload\" style=\"display: none;\"></label></div>");
+printf("<div class=\"col-md-6\"><input type=\"submit\" value=\"Subir\" class=\"btn btn-grey-form\" /></div></form>");
+printf("<p><form action=\"/cgi-bin/delete.cgi\" METHOD=\"GET\" class=\"row\"><div class=\"col-md-6\">");
+printf("<input name=\"module\" type=\"text\" placeholder=\"Nombre del modulo\" class=\"form-control\"></div><div class=\"col-md-6\">");
+printf("<input  type=\"submit\" value=\"Borrar Modulo\"  class=\"btn btn-grey-form\"/></div></form></p><div class=\"text-lsmod\">");
 fflush(0);
 system("lsmod");
-printf("</p>");
-printf("</body></html>");
+printf("</div></div></body></html>");
 }
 
 int checkModule(char * path){
