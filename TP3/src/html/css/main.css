@@ -12,7 +12,7 @@ body {
 }
 
 .main-container {    
-    text-align: center;
+    text-align : justify;
 	position: relative;
     background: #e4e4e4;
     padding: 30px;
