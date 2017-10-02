@@ -8,14 +8,18 @@ int main(void)
 	char *data;
 	char module[50];
 	char message[50];
+	int result;
 	data = getenv("QUERY_STRING");
 	sscanf(data,"module=%s",module);
 	char command[200]="sudo rmmod ";
 	strcat(command,module);
 	fflush(0);
-	system(command);	
+	result = system(command);	
+	if(result == 0){
 	strcpy(message,"El modulo ha sido removido");
-	
+	}else{
+		strcpy(message,"El modulo que se quiere borrar no existe");
+	}
 	setWeb(message);
 	return 0;
 }

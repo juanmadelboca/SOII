@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-void setWeb(int );
+void setWeb(char * );
 int checkModule(char *);
 
 int main(void)
@@ -12,6 +12,8 @@ char *data;
 unsigned long length;
 unsigned long writelength;
 char *pos;
+int result;
+char message[50];
 out= fopen ("/var/www/html/files/modulo.ko","wb+");
 length=atol(getenv("CONTENT_LENGTH"));
 writelength=length;
@@ -34,21 +36,19 @@ fwrite(data, 1, writelength, out);
  
 fclose(out);
 free(rawdata);
-//chequeo q sea un modulo lo que han subido
-int moduleInstalled;
-if(checkModule("/var/www/html/files/modulo.ko")){
-	
-	fflush(0);
-	system("sudo insmod /var/www/html/files/modulo.ko");
-	moduleInstalled=1;
+fflush(0);
+result = system("sudo insmod /var/www/html/files/modulo.ko");	
+if(result == 0){
+strcpy(message,"El modulo ha sido instalado");
 }else{
-	moduleInstalled=0;
+	strcpy(message,"El archivo subido no es un modulo, o ya se encuentra instalado");
 }
-setWeb(moduleInstalled);
+setWeb(message);
+
 return 0; // exit
 
 }
-void setWeb(int moduleInstalled){
+void setWeb(char * message){
 /**
 @brief provee el codigo html para que el cliente visualice la pagina
 **/
@@ -58,11 +58,7 @@ printf("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\
 printf("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\"");
 printf("integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\">");
 printf("<link rel=\"stylesheet\" type=\"text/css\" href=\"./../css/main.css\" media=\"screen\" /></head><body><div class=\"main-container text-align\">");
-if(moduleInstalled == 1){
-	printf("<div>El modulo ha sido instalado</div>");
-}else{
-	printf("<div>El archivo subido no es un modulo</div>");
-}
+printf("<div>%s </div>",message);
 printf("<form enctype=\"multipart/form-data\" action=\"upload.cgi\" method=\"POST\" class=\"row\" ><div class=\"col-md-6\">");
 printf("<label class=\"btn btn-grey-form\">Buscar <input type=\"file\" name=\"upload\" style=\"display: none;\"></label></div>");
 printf("<div class=\"col-md-6\"><input type=\"submit\" value=\"Subir\" class=\"btn btn-grey-form\" /></div></form>");
@@ -72,15 +68,5 @@ printf("<input  type=\"submit\" value=\"Borrar Modulo\"  class=\"btn btn-grey-fo
 fflush(0);
 system("lsmod");
 printf("</div></div></body></html>");
-}
-
-int checkModule(char * path){
-FILE *fs;
-fs=fopen(path,"rb");
-if(getc(fs)==127){
-return 1;
-}else{
-	return 0;
-}
 }
 
